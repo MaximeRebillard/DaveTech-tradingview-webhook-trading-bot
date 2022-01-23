@@ -22,35 +22,23 @@ def global_var(payload):
 
     subaccount_name = payload['subaccount']
 
-    if subaccount_name == 'MYBYBITACCOUNT':
-        leverage_heroku = os.environ.get('LEVERAGE_MYBYBITACCOUNT')
-        leverage = leverage_heroku if leverage_heroku != None else config.LEVERAGE_MYBYBITACCOUNT
+
+
+
+    if subaccount_name == 'FTX_PASSIVE':
+        leverage_heroku = os.environ.get('LEVERAGE_FTX_PASSIVE')
+        leverage = leverage_heroku if leverage_heroku != None else config.LEVERAGE_FTX_PASSIVE
         leverage = float(leverage)
 
-        risk_heroku = os.environ.get('RISK_MYBYBITACCOUNT')
-        risk = risk_heroku if risk_heroku != None else config.RISK_MYBYBITACCOUNT
+        risk_heroku = os.environ.get('RISK_FTX_PASSIVE')
+        risk = risk_heroku if risk_heroku != None else config.RISK_FTX_PASSIVE
         risk = float(risk) / 100
 
-        api_key_heroku = os.environ.get('API_KEY_MYBYBITACCOUNT')
-        api_key = api_key_heroku if api_key_heroku != None else config.API_KEY_MYBYBITACCOUNT
+        api_key_heroku = os.environ.get('API_KEY_FTX_PASSIVE')
+        api_key = api_key_heroku if api_key_heroku != None else config.API_KEY_FTX_PASSIVE
 
-        api_secret_heroku = os.environ.get('API_SECRET_MYBYBITACCOUNT')
-        api_secret = api_secret_heroku if api_secret_heroku != None else config.API_SECRET_MYBYBITACCOUNT
-
-    elif subaccount_name == 'STRATEGY_TWO':
-        leverage_heroku = os.environ.get('LEVERAGE_STRATEGY_TWO')
-        leverage = leverage_heroku if leverage_heroku != None else config.LEVERAGE_STRATEGY_TWO
-        leverage = float(leverage)
-
-        risk_heroku = os.environ.get('RISK_STRATEGY_TWO')
-        risk = risk_heroku if risk_heroku != None else config.RISK_STRATEGY_TWO
-        risk = float(risk) / 100
-
-        api_key_heroku = os.environ.get('API_KEY_STRATEGY_TWO')
-        api_key = api_key_heroku if api_key_heroku != None else config.API_KEY_STRATEGY_TWO
-
-        api_secret_heroku = os.environ.get('API_SECRET_STRATEGY_TWO')
-        api_secret = api_secret_heroku if api_secret_heroku != None else config.API_SECRET_STRATEGY_TWO
+        api_secret_heroku = os.environ.get('API_SECRET_FTX_PASSIVE')
+        api_secret = api_secret_heroku if api_secret_heroku != None else config.API_SECRET_FTX_PASSIVE
 
     else:
         logbot.logs(">>> /!\ Subaccount name not found", True)
